@@ -4,7 +4,7 @@ const Form = require('./form');
 const List = require('./list');
 
 const App = ({ loading }) => (
-  <main style={Object.assign({ height: '100%' }, loading ? { cursor: 'wait' } : null)}>
+  <main style={loading ? { cursor: 'wait' } : null}>
     <Form />
     <List />
   </main>
