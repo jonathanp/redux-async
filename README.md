@@ -1,6 +1,6 @@
 # Redux async
 
-A demo of different ways to work with asynchronous action creators in Redux.
+A demo of different ways to work with asynchronous action creators in Redux. It uses (untranspiled) ES6 so it will only work in modern browsers.
 
 ## How to build
 
