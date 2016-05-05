@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "content": "Foo"
+    },
+    {
+      "id": 2,
+      "content": "Bar"
+    }
+  ]
+}
