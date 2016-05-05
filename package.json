@@ -1,0 +1,12 @@
+{
+  "name": "redux-async",
+  "version": "1.0.0",
+  "description": "A demo of different ways to work with asynchronous action creators in Redux",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonathanp/redux-async.git"
+  },
+  "author": "Jonathan Persson <persson.jonathan@gmail.com>",
+  "license": "MIT"
+}
