@@ -1,30 +1,39 @@
 const React = require('react');
 const { connect } = require('react-redux');
-const { remove } = require('../actions');
+const { load, remove } = require('../actions');
 const ListItem = require('./list-item');
 
-const List = ({ items, onRemove }) => (
-  <ul>
-    {items.length > 0
-      ? items.map(item =>
-        <ListItem
-          key={item.id}
-          content={item.content}
-          onClick={() => onRemove(item.id)}
-        />
-      )
-      : <em>No items</em>
-    }
-  </ul>
-);
+const List = React.createClass({
+  displayName: 'List',
 
-List.displayName = 'List';
+  componentDidMount: function() {
+    this.props.onLoad();
+  },
+
+  render: function() {
+    const { items, onRemove } = this.props;
+
+    return (
+      <ul>
+        {items.map(item =>
+          <ListItem
+            key={item.id}
+            content={item.content}
+            pending={item.pending}
+            onClick={() => onRemove(item.id)}
+          />
+        )}
+      </ul>
+    );
+  }
+});
 
 const mapStateToProps = (state) => ({
-  items: state
+  items: state.items
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  onLoad: () => { dispatch(load()); },
   onRemove: (id) => { dispatch(remove(id)); }
 });
 

@@ -1,11 +1,15 @@
 const React = require('react');
 const { render } = require('react-dom');
-const { createStore } = require('redux');
+const { createStore, applyMiddleware, compose } = require('redux');
 const { Provider } = require('react-redux');
+const thunk = require('redux-thunk').default;
 const App = require('./components/App');
 const reducers = require('./reducers');
 
-const store = (window.devToolsExtension ? window.devToolsExtension()(createStore) : createStore)(reducers);
+const store = createStore(
+  reducers,
+  compose(applyMiddleware(thunk), window.devToolsExtension ? window.devToolsExtension() : f => f)
+);
 
 render(
   <Provider store={store}>

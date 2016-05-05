@@ -1,9 +1,9 @@
 const React = require('react');
 
-const ListItem = ({ content, onClick }) => (
-  <li>
+const ListItem = ({ content, onClick, pending }) => (
+  <li style={pending ? {opacity: 0.4} : null}>
     {content}
-    <button type="button" onClick={onClick}>×</button>
+    {!pending && <button type="button" onClick={onClick}>×</button>}
   </li>
 );
 
