@@ -1,11 +1,21 @@
 const React = require('react');
+const { connect } = require('react-redux');
+const { add } = require('../actions');
 
-const Form = () => (
-  <form>
+const Form = ({ onAdd }) => (
+  <div>
     <input type="text" ref={(el) => { this.input = el; }} />
-    <button type="button" onClick={() => console.log('add', this.input.value)}>Add</button>
-  </form>
+    <button type="button" onClick={() => {
+      this.input.value && onAdd(this.input.value);
+      this.input.value = '';
+    }}>Add</button>
+  </div>
 );
 
 Form.displayName = 'Form';
-module.exports = Form;
+
+const mapDispatchToProps = (dispatch) => ({
+  onAdd: (content) => { dispatch(add(content)); }
+});
+
+module.exports = connect(null, mapDispatchToProps)(Form);

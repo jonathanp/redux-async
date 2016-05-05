@@ -4,8 +4,8 @@ const List = require('./list');
 
 const App = () => (
   <main>
-    <Form/>
-    <List/>
+    <Form />
+    <List />
   </main>
 );
 
